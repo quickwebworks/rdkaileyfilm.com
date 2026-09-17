@@ -157,6 +157,68 @@
   to { transform: scale(1.14) translate(-1.5%, -2%); }
 }
 
+/* Hero showreel slideshow — alternating drift per slide */
+.ken-burns-in {
+  animation: ken-in 7.8s cubic-bezier(0.25, 0.6, 0.35, 1) forwards;
+  will-change: transform;
+}
+.ken-burns-out {
+  animation: ken-out 7.8s cubic-bezier(0.25, 0.6, 0.35, 1) forwards;
+  will-change: transform;
+}
+@keyframes ken-in {
+  from { transform: scale(1.05) translate(0.6%, 0.6%); }
+  to { transform: scale(1.2) translate(-1.2%, -1.6%); }
+}
+@keyframes ken-out {
+  from { transform: scale(1.2) translate(-1.2%, 1%); }
+  to { transform: scale(1.05) translate(1%, -0.8%); }
+}
+
+/* ---------- Hero filmstrip (moving showreel) ---------- */
+.strip-tilt {
+  transform: rotate(-1.2deg) scale(1.06);
+  transform-origin: center;
+}
+.strip-track {
+  display: flex;
+  width: max-content;
+  animation: strip-scroll 46s linear infinite;
+  will-change: transform;
+}
+.showreel-strip:hover .strip-track,
+.showreel-strip:focus-visible .strip-track {
+  animation-play-state: paused;
+}
+@keyframes strip-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+/* film perforation bands */
+.strip-perf {
+  height: 9px;
+  border-radius: 1.5px;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(243, 238, 226, 0.24) 0 11px,
+    transparent 11px 24px
+  );
+}
+
+/* ---------- Respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .ken-burns,
+  .ken-burns-in,
+  .ken-burns-out,
+  .strip-track,
+  .marquee-track,
+  .film-grain,
+  .rec-dot,
+  .scroll-line::after {
+    animation: none !important;
+  }
+}
+
 /* ---------- Marquee ---------- */
 .marquee-track {
   display: flex;

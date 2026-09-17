@@ -133,61 +133,66 @@ export type Frame = {
   tall?: boolean;
 };
 
+/**
+ * All imagery below was sourced from Pexels & Unsplash and is self-hosted
+ * under /public/images so it always loads — no external CDN dependency.
+ */
+
 /** Selected frames — Pexels & Unsplash photography (visually verified) */
 export const FRAMES: Frame[] = [
   {
-    src: "https://images.pexels.com/photos/3756766/pexels-photo-3756766.jpeg?auto=compress&cs=tinysrgb&w=1260",
+    src: "/images/frame-music.jpg",
     title: "Sound & Vision",
     category: "Music Video",
     location: "Dubai",
     tall: true,
   },
   {
-    src: "https://images.pexels.com/photos/2510428/pexels-photo-2510428.jpeg?auto=compress&cs=tinysrgb&w=1260",
+    src: "/images/frame-bts.jpg",
     title: "Monitor Check",
     category: "Behind The Scenes",
     location: "UAE",
   },
   {
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop",
+    src: "/images/frame-wedding.jpg",
     title: "The Vows",
     category: "Wedding Film",
     location: "India",
     tall: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1600&auto=format&fit=crop",
+    src: "/images/frame-realestate.jpg",
     title: "Skyline Living",
     category: "Real Estate",
     location: "Dubai Marina",
   },
   {
-    src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop",
+    src: "/images/frame-fashion.jpg",
     title: "Editorial No. 7",
     category: "Fashion & Portfolio",
     location: "Studio — Dubai",
     tall: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop",
+    src: "/images/frame-product.jpg",
     title: "Timepiece",
     category: "Product Film",
     location: "Macro — Studio",
   },
   {
-    src: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260",
+    src: "/images/frame-corporate.jpg",
     title: "The Briefing",
     category: "Corporate Film",
     location: "Worldwide",
   },
   {
-    src: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1600&auto=format&fit=crop",
+    src: "/images/frame-grading.jpg",
     title: "The Cut",
     category: "Editing & Grading",
     location: "Post Suite",
   },
   {
-    src: "https://images.pexels.com/photos/2749265/pexels-photo-2749265.jpeg?auto=compress&cs=tinysrgb&w=1260",
+    src: "/images/frame-desert.jpg",
     title: "Desert Caravan",
     category: "Location Scout",
     location: "Dubai Desert",
@@ -196,18 +201,70 @@ export const FRAMES: Frame[] = [
 
 /** About collage images */
 export const ABOUT_IMAGES = {
-  main: "https://images.pexels.com/photos/3379933/pexels-photo-3379933.jpeg?auto=compress&cs=tinysrgb&w=1260",
-  secondary:
-    "https://images.pexels.com/photos/1117132/pexels-photo-1117132.jpeg?auto=compress&cs=tinysrgb&w=1260",
+  main: "/images/about-main.jpg",
+  secondary: "/images/about-secondary.jpg",
 };
 
 /** Hero backdrop — clapperboard on a desert shoot */
-export const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2400&auto=format&fit=crop";
+export const HERO_IMAGE = "/images/hero-clapperboard.jpg";
 
 /** Vision parallax backdrop — vintage projector beam */
-export const VISION_IMAGE =
-  "https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=2000&auto=format&fit=crop";
+export const VISION_IMAGE = "/images/vision-projector.jpg";
+
+/**
+ * Hero showreel slideshow — auto-cycling cinematic frames in the top area.
+ * Each slide drifts with its own Ken Burns motion and crossfades to the next.
+ */
+export type ShowreelSlide = { src: string; label: string; note: string };
+
+export const SHOWREEL_SLIDES: ShowreelSlide[] = [
+  {
+    src: "/images/hero-clapperboard.jpg",
+    label: "Desert Slate",
+    note: "A Cam · Location Scout",
+  },
+  {
+    src: "/images/about-main.jpg",
+    label: "On Set",
+    note: "Director & DOP",
+  },
+  {
+    src: "/images/frame-music.jpg",
+    label: "Sound & Vision",
+    note: "Music Video · Dubai",
+  },
+  {
+    src: "/images/frame-fashion.jpg",
+    label: "Editorial No. 7",
+    note: "Fashion · Studio",
+  },
+  {
+    src: "/images/frame-realestate.jpg",
+    label: "Skyline Living",
+    note: "Real Estate · Marina",
+  },
+  {
+    src: "/images/vision-projector.jpg",
+    label: "The Projection Room",
+    note: "Post · Final Cut",
+  },
+];
+
+/** Hero filmstrip — continuously scrolling reel of stills (click = showreel) */
+export const SHOWREEL_STRIP: { src: string; label: string }[] = [
+  { src: "/images/frame-music.jpg", label: "Sound & Vision" },
+  { src: "/images/about-main.jpg", label: "On Set" },
+  { src: "/images/frame-wedding.jpg", label: "The Vows" },
+  { src: "/images/frame-realestate.jpg", label: "Skyline Living" },
+  { src: "/images/frame-fashion.jpg", label: "Editorial No. 7" },
+  { src: "/images/frame-bts.jpg", label: "Monitor Check" },
+  { src: "/images/frame-product.jpg", label: "Timepiece" },
+  { src: "/images/frame-corporate.jpg", label: "The Briefing" },
+  { src: "/images/frame-grading.jpg", label: "The Cut" },
+  { src: "/images/frame-desert.jpg", label: "Desert Caravan" },
+  { src: "/images/about-secondary.jpg", label: "Slate & Roll" },
+  { src: "/images/hero-clapperboard.jpg", label: "Desert Slate" },
+];
 
 export const APPROACH_STEPS = [
   {

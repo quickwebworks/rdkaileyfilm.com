@@ -51,3 +51,22 @@ Work Log:
 Stage Summary:
 - Site production-ready and fully verified at / on port 3000
 - All user requirements met: Pexels/Unsplash imagery, YouTube video intros in Our Services, phones/Instagram/locations present, artistic cinematic design
+
+---
+Task ID: 6
+Agent: main (Z.ai Code)
+Task: Fix "some photos are not coming" + animate showreel images/videos in the top area (hero)
+
+Work Log:
+- Diagnosed photo breakage: all 13 Pexels/Unsplash URLs returned 200 server-side but failed client-side (hotlink/regional CDN issues) -> self-hosted fix
+- Downloaded all 13 images to public/images/ (56K-528K each, verified valid JPEGs)
+- data.ts: switched FRAMES/ABOUT_IMAGES/HERO_IMAGE/VISION_IMAGE to local /images/* paths; added SHOWREEL_SLIDES (6 hero slideshow frames) + SHOWREEL_STRIP (12 filmstrip frames)
+- globals.css: added ken-burns-in/ken-burns-out alternating drift keyframes, strip-tilt, strip-track scroll keyframes (46s linear, hover/focus pause), .strip-perf film perforation bands, prefers-reduced-motion block
+- hero.tsx rebuilt: auto-cycling 6-slide showreel backdrop (6s interval, 1.5s crossfade, alternating Ken Burns), animated REEL NN/06 counter + progress dashes, tilted filmstrip marquee at hero bottom (perforated film cells, desaturated->saturated on hover, whole strip clickable -> YouTube showreel dialog shared with Watch Showreel CTA)
+- Fixed mobile overflow bug: flex justify-center pushed content under navbar on short screens -> justify-start md:justify-center; hid strip label on xs
+- Clean restart (rm -rf .next), lint clean
+
+Stage Summary:
+- Photos now always load: 39 imgs on page, 0 broken, all served locally (no external CDN dependency)
+- Top area fully animated: slideshow verified advancing (Reel 01->03), strip transform delta confirmed (~60px/s), strip click -> dialog -> YouTube iframe autoplay verified
+- Mobile 375px: scrollWidth 375 (no overflow), eyebrow at 112px below navbar, CTAs visible, footer pushes naturally; desktop 1440 verified via screenshots
