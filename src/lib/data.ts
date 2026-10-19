@@ -65,7 +65,7 @@ export const SERVICES: Service[] = [
     title: "Model Portfolio & Fashion Shoots",
     blurb:
       "Editorial-grade portfolios and fashion films with professional lighting, styling and direction.",
-    videoId: "yjF_fb4n_ps",
+    videoId: "7JGaPCtcHN8",
   },
   {
     id: "web-series",
